@@ -22,11 +22,11 @@ repository               : "https://github.com/Yonggeun-Jung/yonggeun-jung.githu
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "yonggeun_profile.png"
+  avatar           : "yonggeun_profile.JPG"
   name             : "Yonggeun Jung"
   pronouns         : # example: "she/her"  
   bio              : "Ph.D. Student in Economics"
-  location         : "Gainsville, Florida"
+  location         : #
   employer         : "University of Florida"
   uri              : # URL
   email            : "yonggeun.jung@ufl.edu" 
@@ -57,9 +57,9 @@ author:
   goodreads        : # Username
   google_plus      : # Username
   keybase          : # Username
-  instagram        : "https://www.instagram.com/yonggeun.jung/"
+  instagram        : #
   lastfm           : # Username
-  linkedin         : "www.linkedin.com/in/yonggeun-jung-517674336"
+  linkedin         : #
   mastodon         : # URL
   medium           : # URL
   pinterest        : # Username
@@ -76,11 +76,11 @@ author:
   zhihu            : # Username
 
 # Publication Category - The following the list of publication categories and their headings
-publication_category:
-  refereed:
-    title: "Refereed Publications"
-  wip:
-    title: "Work in Progress"
+#publication_category:
+#  refereed:
+#    title: "Refereed Publications"
+#  wip:
+#    title: "Work in Progress"
 
 # Site Settings
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
@@ -255,14 +255,14 @@ defaults:
       share: true
       comments: true
   # _publications
-  - scope:
-      path: ""
-      type: publications
-    values:
-      layout: single
-      author_profile: true
-      share: true
-      comments: true
+  #- scope:
+  #    path: ""
+  #    type: publications
+  #  values:
+  #    layout: single
+  #    author_profile: true
+  #    share: true
+  #    comments: true
   # _portfolio
   - scope:
       path: ""

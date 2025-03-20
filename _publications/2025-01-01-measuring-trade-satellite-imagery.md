@@ -13,7 +13,6 @@ abstract: >
   exploring how advanced image analysis techniques can augment traditional trade statistics.
 ---
 
-(여기부터는 본문 내용)
 
 Work in progress with **Gunnar Heins**.  
 Exploring the use of satellite imagery (e.g., night lights, port activity) as a proxy for trade flows 

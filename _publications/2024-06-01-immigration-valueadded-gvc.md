@@ -18,8 +18,4 @@ abstract: >
   This paper investigates the impact of immigration on Korea’s value-added exports and participation in Global Value Chains (GVCs) using a country-level panel dataset. To address the endogeneity between immigration and trade, this study employs a fixed effects two-stage model and uses visa policy as an instrumental variable. The results reveal that immigration significantly enhances Korea’s domestic value-added exports and GVC involvement, highlighting the crucial role of immigrants in the nation's trade dynamics. The impact of immigration on value-added exports varies with the economic status of immigrants' home countries, with significant effects observed primarily in low-income countries. This effect is mainly driven by the increase in Korea's domestic value-added embedded in exports from these low-income countries, demonstrating a forward linkage. Additionally, the study finds that the coefficientfor the industry sector is larger, providing insights into sector-specific dynamics.
 ---
 
-(여기부터는 본문 내용)
-
-*Published in **Bank of Korea Economic Analysis**, vol.30, no.2, pp.79-114, June 2024.*  
-
 [**Link to the journal**](https://www.bok.or.kr/imerEng/bbs/E0002726/view.do?nttId=10085494).
