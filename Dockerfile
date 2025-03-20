@@ -1,21 +1,23 @@
-# Base image: Ruby with necessary dependencies for Jekyll
-FROM ruby:3.2
+# For more information, please refer to https://aka.ms/vscode-docker-python
+FROM python:3-slim
 
-# Install dependencies
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    nodejs \
-    && rm -rf /var/lib/apt/lists/*
+# Keeps Python from generating .pyc files in the container
+ENV PYTHONDONTWRITEBYTECODE=1
 
-# Set the working directory inside the container
-WORKDIR /usr/src/app
+# Turns off buffering for easier container logging
+ENV PYTHONUNBUFFERED=1
 
-# Copy Gemfile into the container (necessary for `bundle install`)
-COPY Gemfile ./
+# Install pip requirements
+COPY requirements.txt .
+RUN python -m pip install -r requirements.txt
 
-# Install bundler and dependencies
-RUN gem install bundler:2.3.26 && bundle install
+WORKDIR /app
+COPY . /app
 
-# Command to serve the Jekyll site
-CMD ["jekyll", "serve", "-H", "0.0.0.0", "-w", "--config", "_config.yml,_config_docker.yml"]
+# Creates a non-root user with an explicit UID and adds permission to access the /app folder
+# For more info, please refer to https://aka.ms/vscode-docker-python-configure-containers
+RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /app
+USER appuser
 
+# During debugging, this entry point will be overridden. For more information, please refer to https://aka.ms/vscode-docker-python-debug
+CMD ["python", "markdown_generator/publications.py"]
