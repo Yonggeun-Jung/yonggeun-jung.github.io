@@ -9,10 +9,10 @@
 
 main:
   - title: "Research"
-    url: /publications/
+    url: /research/
 
   - title: "CV"
-    url: /files/CV_Yonggeun_Jung.pdf/
+    url: /files/CV_Yonggeun_Jung.pdf
 
   - title: "Blog"
     url: https://brunch.co.kr/@yuriijung    
