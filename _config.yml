@@ -45,7 +45,7 @@ author:
   bitbucket        : # Username - Update with your username on the site
   codepen          : # Username
   dribbble         : # Username
-  github           : "https://github.com/Yonggeun-Jung"
+  github           : "Yonggeun-Jung"
   kaggle           : # Username  
   stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
 
@@ -214,9 +214,9 @@ collections:
   teaching:
     output: true
     permalink: /:collection/:path/
-  publications:
-    output: true
-    permalink: /:collection/:path/
+  #publications:
+  #  output: true
+  #  permalink: /:collection/:path/
   portfolio:
     output: true
     permalink: /:collection/:path/
