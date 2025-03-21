@@ -17,4 +17,8 @@ M.A. in International Economics, Sogang University, 2021 - 2024
 B.A. in International Commerce, Incheon National University, 2010 - 2014
 </span>
 
-## E-mail: [yonggeun.jung@ufl.edu](mailto:yonggeun.jung@ufl.edu)
+## Contact
+<span style="font-size: 0.9em;">
+341 MAT, Department of Economics, University of Florida, Gainesville, Florida, 32611  
+<strong>E-mail:</strong> <span style="font-family: monospace;">yonggeun.jung@ufl.edu</span>
+</span>
