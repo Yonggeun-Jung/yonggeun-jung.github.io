@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: false  # or ""로 해도 됩니다.
+title: ""
 permalink: /research/
 author_profile: true
 ---
@@ -10,7 +10,7 @@ author_profile: true
 <div class="publication-section" style="font-size: 0.9em;">
 
   <!-- Publications -->
-  <h2>Publications</h2>
+  <h2>Refereed Publications</h2>
   <hr />
 
   {% for pub in site.data.publications %}
@@ -44,7 +44,7 @@ author_profile: true
   <h2>Work in Progress</h2>
   <ul>
     {% for wip in site.data.work_in_progress %}
-      <li style="margin-bottom: 0.5em; font-size: 0.95em;">
+      <li style="margin-bottom: 0.5em; font-size: 1.00em;">
         {{ wip.title }}
         <!-- Work in Progress에도 abstract 토글을 원하면 유사하게 추가 가능합니다 -->
       </li>
