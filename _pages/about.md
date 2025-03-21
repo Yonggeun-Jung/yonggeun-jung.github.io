@@ -12,9 +12,9 @@ redirect_from:
 
 ### Education
 <span style="font-size: 0.9em;">
-- Ph.D. in Economics, University of Florida, 2024 - 2029 (Expected)  
-- M.A. in International Economics, Sogang University, 2021 - 2024  
-- B.A. in International Commerce, Incheon National University, 2010 - 2014
+Ph.D. in Economics, University of Florida, 2024 - 2029 (Expected)  
+M.A. in International Economics, Sogang University, 2021 - 2024  
+B.A. in International Commerce, Incheon National University, 2010 - 2014
 </span>
 
-### E-mail: <span style="font-size: 0.9em;">[yonggeun.jung@ufl.edu](mailto:yonggeun.jung@ufl.edu)</span>
+### E-mail: [yonggeun.jung@ufl.edu](mailto:yonggeun.jung@ufl.edu)
