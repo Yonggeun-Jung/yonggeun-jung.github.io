@@ -33,6 +33,9 @@ A trade data portal by the Korea International Trade Association (KITA), based o
 ### [MDIS Korea](https://mdis.kostat.go.kr/eng/pageLink.do?link=mdisDataService)
 <small class="text-muted" style="font-family: sans-serif;">>
 A portal by Statistics Korea offering firm-level datasets, including the Survey of Business Activities and the Mining and Manufacturing Survey. 
+</small>
+
+<small class="text-muted" style="font-family: sans-serif;">>
 Full access requires using the Korean-language version of the site.
 </small>
 
