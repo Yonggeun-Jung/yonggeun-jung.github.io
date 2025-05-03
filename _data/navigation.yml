@@ -20,8 +20,8 @@ main:
   - title: "Useful"
     url: /links/  # 마이크로 데이터, USA trade online, OECD, KITA, UN Comtrade, Google Earth eigen etc
 
-  - title: "Blog"
-    url: https://brunch.co.kr/@yuriijung    
+  #- title: "Blog"
+  #  url: https://brunch.co.kr/@yuriijung    
 
   #- title: "Personal"
   #  url: /personal/   
