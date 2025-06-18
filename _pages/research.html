@@ -10,20 +10,20 @@ author_profile: true
 <div class="publication-section" style="font-size: 0.9em;">
 
   <!-- Publications -->
-  <h2>Refereed Publications</h2>
+  <h2>Publications and Working papers</h2>
   <hr />
 
   {% for pub in site.data.publications %}
     <div class="publication-item" style="margin-bottom: 1.5em;">
-      <!-- 1) 전체 논문 정보를 CV 스타일로 한 문장 -->
+      
       <p>
-        <!-- 클릭 시 이동할 수 있도록 논문 제목 부분에 URL 연결 -->
+        
         <strong>
           <a href="{{ pub.url }}" target="_blank">{{ pub.citation }}</a>
         </strong>
       </p>
 
-      <!-- 2) Show Abstract 버튼 -->
+      
       {% if pub.abstract %}
         <button class="toggle-abstract" 
                 style="border: none; background: none; 
@@ -46,7 +46,7 @@ author_profile: true
     {% for wip in site.data.work_in_progress %}
       <li style="margin-bottom: 0.5em; font-size: 1.00em;">
         {{ wip.title }}
-        <!-- Work in Progress에도 abstract 토글을 원하면 유사하게 추가 가능합니다 -->
+        
       </li>
     {% endfor %}
   </ul>
