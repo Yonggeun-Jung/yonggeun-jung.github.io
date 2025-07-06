@@ -7,3 +7,4 @@
 - citation: "Machine Learning-Based Estimation of Monthly GDP"
   abstract: "This paper proposes a scalable framework to estimate monthly GDP using machine learning methods. We apply Multi-Layer Perceptron (MLP), Long Short-Term Memory networks (LSTM), Extreme Gradient Boosting (XGBoost), and Elastic Net regression to map monthly indicators to quarterly GDP growth, and reconcile the outputs with actual aggregates. Using data from China, Germany, the UK, and the US, our method delivers robust performance across varied data environments. Benchmark comparisons with prior US studies and UK official statistics validate its accuracy. The approach offers a flexible and data-driven tool for high-frequency macroeconomic monitoring and policy analysis."
   url: "https://arxiv.org/abs/2506.14078"
+  replication_url: "https://github.com/Yonggeun-Jung/monthly_gdp"

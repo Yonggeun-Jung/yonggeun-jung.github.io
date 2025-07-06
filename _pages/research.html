@@ -15,15 +15,12 @@ author_profile: true
 
   {% for pub in site.data.publications %}
     <div class="publication-item" style="margin-bottom: 1.5em;">
-      
       <p>
-        
         <strong>
           <a href="{{ pub.url }}" target="_blank">{{ pub.citation }}</a>
         </strong>
       </p>
 
-      
       {% if pub.abstract %}
         <button class="toggle-abstract" 
                 style="border: none; background: none; 
@@ -36,6 +33,15 @@ author_profile: true
           <p>{{ pub.abstract }}</p>
         </div>
       {% endif %}
+
+      {% if pub.replication_url %}
+        <div style="margin-top: 0.5em;">
+          <a href="{{ pub.replication_url }}" target="_blank" 
+             style="font-size: smaller; color: #0056b3; text-decoration: underline;">
+            Replication Package
+          </a>
+        </div>
+      {% endif %}
     </div>
     <hr />
   {% endfor %}
@@ -46,7 +52,6 @@ author_profile: true
     {% for wip in site.data.work_in_progress %}
       <li style="margin-bottom: 0.5em; font-size: 1.00em;">
         {{ wip.title }}
-        
       </li>
     {% endfor %}
   </ul>
@@ -70,7 +75,3 @@ author_profile: true
     });
   });
 </script>
-
-
-
-
