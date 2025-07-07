@@ -1,0 +1,115 @@
+
+---
+layout: archive
+title: "Personal"
+permalink: /personal/
+author_profile: true
+---
+
+<h2>Countries I've Visited</h2>
+<div id="visited-map" style="height: 350px; margin-bottom: 2em;"></div>
+
+<h2>Travel Photos</h2>
+<div class="glider-contain travel">
+  <button class="glider-prev travel">«</button>
+  <div class="glider travel">
+    <img src="/assets/images/travel/travel_1.JPG">
+    <img src="/assets/images/travel/travel_2.JPG">
+    <img src="/assets/images/travel/travel_3.JPG">
+    <img src="/assets/images/travel/travel_4.JPG">
+    <img src="/assets/images/travel/travel_5.JPG">
+  </div>
+  <button class="glider-next travel">»</button>
+  <div role="tablist" class="dots travel"></div>
+</div>
+
+<h2>My Drawings</h2>
+<div class="glider-contain drawing">
+  <button class="glider-prev drawing">«</button>
+  <div class="glider drawing">
+    <img src="/assets/images/drawings/drawing_1.png">
+    <img src="/assets/images/drawings/drawing_2.jpg">
+    <img src="/assets/images/drawings/drawing_3.jpg">
+  </div>
+  <button class="glider-next drawing">»</button>
+  <div role="tablist" class="dots drawing"></div>
+</div>
+
+<h2>A Personal Dream</h2>
+<p>
+  My wife and I love traveling and painting. I hope this page continues to grow as I explore more of the world.
+  I also love painting. One of my dreams is to hold a solo art exhibition someday.
+</p>
+
+<!-- Leaflet + Glider -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
+
+<script>
+  const visitedCountries = [
+    "South Korea", "China", "Russia", "Kazakhstan", "Uzbekistan", "Georgia", "Azerbaijan",
+    "Turkey", "Ukraine", "Germany", "Czech Republic", "Austria", "Slovenia", "Hungary",
+    "France", "Spain", "United Kingdom", "Switzerland", "United States of America", "Japan", "Indonesia"
+  ];
+
+  const map = L.map('visited-map').setView([30, 10], 2);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+
+  fetch('https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson')
+    .then(res => res.json())
+    .then(data => {
+      L.geoJSON(data, {
+        style: feature => ({
+          fillColor: visitedCountries.includes(feature.properties.name) ? "#0074D9" : "#ddd",
+          weight: 1,
+          color: "#999",
+          fillOpacity: visitedCountries.includes(feature.properties.name) ? 0.7 : 0.2
+        }),
+        onEachFeature: (feature, layer) => {
+          if (visitedCountries.includes(feature.properties.name)) {
+            layer.bindPopup(feature.properties.name);
+          }
+        }
+      }).addTo(map);
+    });
+
+  window.addEventListener('load', function(){
+    new Glider(document.querySelector('.glider.travel'), {
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      draggable: true,
+      dots: '.dots.travel',
+      arrows: {
+        prev: '.glider-prev.travel',
+        next: '.glider-next.travel'
+      }
+    });
+    new Glider(document.querySelector('.glider.drawing'), {
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      draggable: true,
+      dots: '.dots.drawing',
+      arrows: {
+        prev: '.glider-prev.drawing',
+        next: '.glider-next.drawing'
+      }
+    });
+  });
+</script>
+
+<style>
+.glider-contain {
+  max-width: 600px;
+  margin: 0 auto 2em auto;
+}
+.glider img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+</style>

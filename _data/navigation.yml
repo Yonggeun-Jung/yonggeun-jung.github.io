@@ -23,6 +23,6 @@ main:
   #- title: "Blog"
   #  url: https://brunch.co.kr/@yuriijung    
 
-  #- title: "Personal"
-  #  url: /personal/   
+  - title: "Personal"
+    url: /personal/   
     
