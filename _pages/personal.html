@@ -79,7 +79,7 @@ I also enjoy painting — one of my dreams is to hold a solo art exhibition some
 
   window.addEventListener('load', function(){
     new Glider(document.querySelector('.glider.travel'), {
-      slidesToShow: 1.2,
+      slidesToShow: 1,
       slidesToScroll: 1,
       draggable: true,
       dots: '.dots.travel',
@@ -103,15 +103,17 @@ I also enjoy painting — one of my dreams is to hold a solo art exhibition some
 
 <style>
 .glider-contain {
+  position: relative;
   max-width: 480px;
-  height: 400px; 
+  height: 400px;
   margin: 0 auto 2em auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
 }
-.glider {}
+
+.glider {
+  height: 100%;
+}
+
 .glider img {
   max-height: 100%;
   max-width: 100%;
@@ -121,4 +123,26 @@ I also enjoy painting — one of my dreams is to hold a solo art exhibition some
   border-radius: 12px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
+
+.glider-prev,
+.glider-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.8);
+  border: none;
+  font-size: 2rem;
+  padding: 0 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.glider-prev {
+  left: -10px;
+}
+
+.glider-next {
+  right: -10px;
+}
 </style>
+
