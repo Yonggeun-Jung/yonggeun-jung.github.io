@@ -37,8 +37,8 @@ author_profile: true
 
 <h2>Travel & Art</h2>
 <p>
-My wife and I love traveling, and I hope this page continues to grow as we explore more of the world together.
-I also enjoy painting — one of my dreams is to hold a solo art exhibition someday.
+  My wife and I love traveling, and I hope this page continues to grow as we explore more of the world together.
+  I also enjoy painting — one of my dreams is to hold a solo art exhibition someday.
 </p>
 
 <!-- Leaflet + Glider -->
@@ -79,7 +79,7 @@ I also enjoy painting — one of my dreams is to hold a solo art exhibition some
 
   window.addEventListener('load', function(){
     new Glider(document.querySelector('.glider.travel'), {
-      slidesToShow: 1.3, // 가운데 강조 + 양 옆 일부 보이기
+      slidesToShow: 1,
       slidesToScroll: 1,
       draggable: true,
       dots: '.dots.travel',
@@ -87,10 +87,11 @@ I also enjoy painting — one of my dreams is to hold a solo art exhibition some
         prev: '.glider-prev.travel',
         next: '.glider-next.travel'
       },
-      rewind: true,
+      rewind: true
     });
+
     new Glider(document.querySelector('.glider.drawing'), {
-      slidesToShow: 1.3,
+      slidesToShow: 1,
       slidesToScroll: 1,
       draggable: true,
       dots: '.dots.drawing',
@@ -98,35 +99,45 @@ I also enjoy painting — one of my dreams is to hold a solo art exhibition some
         prev: '.glider-prev.drawing',
         next: '.glider-next.drawing'
       },
-      rewind: true,
+      rewind: true
     });
   });
 </script>
 
 <style>
 .glider-contain {
-  max-width: 640px;
+  max-width: 480px;
+  height: 400px;
   margin: 0 auto 2em auto;
   position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .glider {
-  padding: 10px 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .glider img {
-  width: 100%;
-  height: auto;
-  max-height: 400px;
+  max-height: 100%;
+  max-width: 100%;
   object-fit: contain;
   border-radius: 12px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  display: block;
+  margin: auto;
 }
 
 .glider-prev,
 .glider-next {
   position: absolute;
-  top: 45%;
+  top: 50%;
   transform: translateY(-50%);
   background: rgba(255,255,255,0.8);
   border: none;
@@ -144,3 +155,4 @@ I also enjoy painting — one of my dreams is to hold a solo art exhibition some
   right: -10px;
 }
 </style>
+
