@@ -27,9 +27,9 @@ author_profile: true
 <div class="glider-contain drawing">
   <button class="glider-prev drawing">«</button>
   <div class="glider drawing">
-    <img src="images/drawings/drawing_1.png">
-    <img src="images/drawings/drawing_2.jpg">
-    <img src="images/drawings/drawing_3.jpg">
+    <img src="/images/drawings/drawing_1.png">
+    <img src="/images/drawings/drawing_2.jpg">
+    <img src="/images/drawings/drawing_3.jpg">
   </div>
   <button class="glider-next drawing">»</button>
   <div role="tablist" class="dots drawing"></div>
@@ -107,8 +107,10 @@ I also enjoy painting — one of my dreams is to hold a solo art exhibition some
   margin: 0 auto 2em auto;
 }
 .glider img {
-  width: 100%;
-  height: auto;
+  max-height: 400px;
+  width: auto;
+  margin: 0 auto;
+  display: block;
   border-radius: 12px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
