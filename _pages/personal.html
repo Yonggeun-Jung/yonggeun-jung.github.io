@@ -13,11 +13,11 @@ author_profile: true
 <div class="glider-contain travel">
   <button class="glider-prev travel">«</button>
   <div class="glider travel">
-    <img src="/images/travel/travel_1.JPG">
-    <img src="/images/travel/travel_2.JPG">
-    <img src="/images/travel/travel_3.JPG">
-    <img src="/images/travel/travel_4.JPG">
-    <img src="/images/travel/travel_5.JPG">
+    <img src="/images/travel/travel_1.JPG" alt="Travel photo 1">
+    <img src="/images/travel/travel_2.JPG" alt="Travel photo 2">
+    <img src="/images/travel/travel_3.JPG" alt="Travel photo 3">
+    <img src="/images/travel/travel_4.JPG" alt="Travel photo 4">
+    <img src="/images/travel/travel_5.JPG" alt="Travel photo 5">
   </div>
   <button class="glider-next travel">»</button>
   <div role="tablist" class="dots travel"></div>
@@ -27,9 +27,9 @@ author_profile: true
 <div class="glider-contain drawing">
   <button class="glider-prev drawing">«</button>
   <div class="glider drawing">
-    <img src="/images/drawings/drawing_1.JPG">
-    <img src="/images/drawings/drawing_2.JPG">
-    <img src="/images/drawings/drawing_3.JPG">
+    <img src="/images/drawings/drawing_1.JPG" alt="Drawing 1">
+    <img src="/images/drawings/drawing_2.JPG" alt="Drawing 2">
+    <img src="/images/drawings/drawing_3.JPG" alt="Drawing 3">
   </div>
   <button class="glider-next drawing">»</button>
   <div role="tablist" class="dots drawing"></div>
@@ -105,18 +105,20 @@ I also enjoy painting — one of my dreams is to hold a solo art exhibition some
 .glider-contain {
   position: relative;
   max-width: 480px;
-  height: 400px;
   margin: 0 auto 2em auto;
-  overflow: hidden;
 }
 
 .glider {
-  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .glider img {
-  max-height: 100%;
   max-width: 100%;
+  max-height: 70vh; /* 브라우저 높이의 70%까지 확장 */
+  height: auto;
+  width: auto;
   object-fit: contain;
   margin: auto;
   display: block;
@@ -145,4 +147,5 @@ I also enjoy painting — one of my dreams is to hold a solo art exhibition some
   right: -10px;
 }
 </style>
+
 
