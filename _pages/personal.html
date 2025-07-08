@@ -41,7 +41,7 @@ author_profile: true
   I also enjoy painting — one of my dreams is to hold a solo art exhibition someday.
 </p>
 
-<!-- Leaflet + Glider -->
+<!-- External Libraries -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -82,24 +82,26 @@ author_profile: true
       slidesToShow: 1,
       slidesToScroll: 1,
       draggable: true,
+      rewind: true,
       dots: '.dots.travel',
       arrows: {
         prev: '.glider-prev.travel',
         next: '.glider-next.travel'
       },
-      rewind: true
+      scrollLock: true
     });
 
     new Glider(document.querySelector('.glider.drawing'), {
       slidesToShow: 1,
       slidesToScroll: 1,
       draggable: true,
+      rewind: true,
       dots: '.dots.drawing',
       arrows: {
         prev: '.glider-prev.drawing',
         next: '.glider-next.drawing'
       },
-      rewind: true
+      scrollLock: true
     });
   });
 </script>
@@ -111,13 +113,13 @@ author_profile: true
   margin: 0 auto 2em auto;
   position: relative;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: #f8f8f8;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 0 40px;
 }
 
 .glider {
-  width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -128,10 +130,10 @@ author_profile: true
   max-height: 100%;
   max-width: 100%;
   object-fit: contain;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   display: block;
   margin: auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
 .glider-prev,
@@ -145,14 +147,36 @@ author_profile: true
   padding: 0 10px;
   cursor: pointer;
   z-index: 10;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .glider-prev {
-  left: -10px;
+  left: 5px;
 }
 
 .glider-next {
-  right: -10px;
+  right: 5px;
+}
+
+.dots {
+  text-align: center;
+  margin-top: 0.5em;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.dots button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 0 4px;
+  border: none;
+  background: #ccc;
+  padding: 0;
+}
+
+.dots .glider-dot.active {
+  background: #0074D9;
 }
 </style>
-
