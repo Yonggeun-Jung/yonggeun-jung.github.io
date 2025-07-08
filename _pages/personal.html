@@ -41,12 +41,13 @@ author_profile: true
   I also enjoy painting — one of my dreams is to hold a solo art exhibition someday.
 </p>
 
-<!-- External Libraries -->
+<!-- External CSS & JS -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
 
+<!-- Inline Script -->
 <script>
   const visitedCountries = [
     "South Korea", "China", "Russia", "Kazakhstan", "Uzbekistan", "Georgia", "Azerbaijan",
@@ -78,34 +79,35 @@ author_profile: true
     });
 
   window.addEventListener('load', function(){
-    new Glider(document.querySelector('.glider.travel'), {
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      draggable: true,
-      rewind: true,
-      dots: '.dots.travel',
-      arrows: {
-        prev: '.glider-prev.travel',
-        next: '.glider-next.travel'
-      },
-      scrollLock: true
-    });
+    function initSlider(selector, dotsSelector, prevBtn, nextBtn) {
+      new Glider(document.querySelector(selector), {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        draggable: true,
+        dots: dotsSelector,
+        arrows: {
+          prev: prevBtn,
+          next: nextBtn
+        },
+        rewind: true,
+        scrollLock: true,
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 1
+            }
+          }
+        ]
+      });
+    }
 
-    new Glider(document.querySelector('.glider.drawing'), {
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      draggable: true,
-      rewind: true,
-      dots: '.dots.drawing',
-      arrows: {
-        prev: '.glider-prev.drawing',
-        next: '.glider-next.drawing'
-      },
-      scrollLock: true
-    });
+    initSlider('.glider.travel', '.dots.travel', '.glider-prev.travel', '.glider-next.travel');
+    initSlider('.glider.drawing', '.dots.drawing', '.glider-prev.drawing', '.glider-next.drawing');
   });
 </script>
 
+<!-- CSS for Layout -->
 <style>
 .glider-contain {
   max-width: 480px;
@@ -113,10 +115,10 @@ author_profile: true
   margin: 0 auto 2em auto;
   position: relative;
   overflow: hidden;
+  padding: 0 30px;
   background: #f8f8f8;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  padding: 0 40px;
 }
 
 .glider {
@@ -127,13 +129,13 @@ author_profile: true
 }
 
 .glider img {
-  max-height: 100%;
   max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
-  display: block;
-  margin: auto;
   border-radius: 12px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  margin: auto;
+  display: block;
 }
 
 .glider-prev,
@@ -151,28 +153,23 @@ author_profile: true
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.glider-prev {
-  left: 5px;
-}
-
-.glider-next {
-  right: 5px;
-}
+.glider-prev { left: 5px; }
+.glider-next { right: 5px; }
 
 .dots {
-  text-align: center;
+  display: flex !important;
+  justify-content: center;
   margin-top: 0.5em;
-  white-space: nowrap;
-  overflow-x: auto;
+  flex-wrap: nowrap;
+  gap: 0.4em;
 }
 
 .dots button {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  margin: 0 4px;
-  border: none;
   background: #ccc;
+  border: none;
   padding: 0;
 }
 
