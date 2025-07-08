@@ -80,7 +80,6 @@ author_profile: true
       slidesToShow: 1,
       slidesToScroll: 1,
       draggable: true,
-      dots: '.dots.travel',
       arrows: {
         prev: '.glider-prev.travel',
         next: '.glider-next.travel'
@@ -118,14 +117,18 @@ author_profile: true
   height: 100%;
 }
 
-.glider img {
-  max-height: 100%;
-  max-width: 100%;
-  object-fit: contain;
+.glider-contain .glider img {
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+
+  width: auto !important;
+  height: auto !important;
+  display: block !important;
+  margin: auto !important;
+
   border-radius: 12px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  display: block;
-  margin: auto;
 }
 
 .glider-prev,
