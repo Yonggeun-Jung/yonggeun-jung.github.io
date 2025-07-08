@@ -1,33 +1,112 @@
 ---
 layout: archive
 title: "Personal"
+url: /personal.html
 permalink: /personal/
 author_profile: true
 ---
+
+<h2>Countries I've Visited</h2>
+<div id="visited-map" style="height: 350px; margin-bottom: 2em;"></div>
 
 <h2>Travel Photos</h2>
 <div class="glider-contain travel">
   <button class="glider-prev travel">«</button>
   <div class="glider travel">
-    <img src="/images/travel/travel_1.JPG">
-    <img src="/images/travel/travel_2.JPG">
-    <img src="/images/travel/travel_3.JPG">
-    <img src="/images/travel/travel_4.JPG">
-    <img src="/images/travel/travel_5.JPG">
+    <img src="/images/travel/travel_1.JPG" alt="Travel 1">
+    <img src="/images/travel/travel_2.JPG" alt="Travel 2">
+    <img src="/images/travel/travel_3.JPG" alt="Travel 3">
+    <img src="/images/travel/travel_4.JPG" alt="Travel 4">
+    <img src="/images/travel/travel_5.JPG" alt="Travel 5">
   </div>
   <button class="glider-next travel">»</button>
   <div role="tablist" class="dots travel"></div>
 </div>
 
-<!-- GliderJS -->
+<h2>My Drawings</h2>
+<div class="glider-contain drawing">
+  <button class="glider-prev drawing">«</button>
+  <div class="glider drawing">
+    <img src="/images/drawings/drawing_1.JPG" alt="Drawing 1">
+    <img src="/images/drawings/drawing_2.JPG" alt="Drawing 2">
+    <img src="/images/drawings/drawing_3.JPG" alt="Drawing 3">
+  </div>
+  <button class="glider-next drawing">»</button>
+  <div role="tablist" class="dots drawing"></div>
+</div>
+
+<h2>Travel & Art</h2>
+<p>
+  My wife and I love traveling, and I hope this page continues to grow as we explore more of the world together.<br>
+  I also enjoy painting — one of my dreams is to hold a solo art exhibition someday.
+</p>
+
+<!-- Leaflet + Glider -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
-<!-- 이미지 로드 대기용 -->
-<script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+
+<script>
+  const visitedCountries = [
+    "South Korea", "China", "Russia", "Kazakhstan", "Uzbekistan", "Georgia", "Azerbaijan",
+    "Turkey", "Ukraine", "Germany", "Czechia", "Austria", "Slovenia", "Hungary",
+    "France", "Spain", "United Kingdom", "Switzerland", "United States of America", "Japan", "Indonesia"
+  ];
+
+  const map = L.map('visited-map').setView([30, 10], 2);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+
+  fetch('https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson')
+    .then(res => res.json())
+    .then(data => {
+      L.geoJSON(data, {
+        style: feature => ({
+          fillColor: visitedCountries.includes(feature.properties.name) ? "#0074D9" : "#ddd",
+          weight: 1,
+          color: "#999",
+          fillOpacity: visitedCountries.includes(feature.properties.name) ? 0.7 : 0.2
+        }),
+        onEachFeature: (feature, layer) => {
+          if (visitedCountries.includes(feature.properties.name)) {
+            layer.bindPopup(feature.properties.name);
+          }
+        }
+      }).addTo(map);
+    });
+
+  window.addEventListener('load', function(){
+    new Glider(document.querySelector('.glider.travel'), {
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      draggable: true,
+      dots: '.dots.travel',
+      arrows: {
+        prev: '.glider-prev.travel',
+        next: '.glider-next.travel'
+      },
+      rewind: true
+    });
+
+    new Glider(document.querySelector('.glider.drawing'), {
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      draggable: true,
+      dots: '.dots.drawing',
+      arrows: {
+        prev: '.glider-prev.drawing',
+        next: '.glider-next.drawing'
+      },
+      rewind: true
+    });
+  });
+</script>
 
 <style>
 .glider-contain {
-  max-width: 500px;
+  max-width: 480px;
   height: 400px;
   margin: 0 auto 2em auto;
   position: relative;
@@ -38,19 +117,18 @@ author_profile: true
 }
 
 .glider {
-  display: flex;
+  width: 100%;
   height: 100%;
 }
 
 .glider img {
-  flex-shrink: 0;
-  height: 100%;
-  width: auto;
+  max-height: 100%;
+  max-width: 100%;
   object-fit: contain;
-  margin: auto;
-  display: block;
   border-radius: 12px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  display: block;
+  margin: auto;
 }
 
 .glider-prev,
@@ -69,25 +147,8 @@ author_profile: true
 .glider-prev {
   left: -10px;
 }
+
 .glider-next {
   right: -10px;
 }
 </style>
-
-<script>
-imagesLoaded(document.querySelector('.glider.travel'), function () {
-  new Glider(document.querySelector('.glider.travel'), {
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    draggable: true,
-    scrollLock: true,
-    rewind: true,
-    dots: '.dots.travel',
-    arrows: {
-      prev: '.glider-prev.travel',
-      next: '.glider-next.travel'
-    }
-  });
-});
-</script>
-
