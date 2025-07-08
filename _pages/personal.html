@@ -108,34 +108,27 @@ author_profile: true
 </script>
 
 <style>
-  /* 새로 추가된 전체 컨테이너 */
+  /* 전체 컨테이너 */
   .sliders-wrapper {
-    display: flex; /* Flexbox 활성화 */
-    justify-content: space-between; /* 양쪽 끝으로 정렬 */
-    gap: 2em; /* 두 슬라이더 사이의 간격 */
-    margin-bottom: 4em; /* 슬라이더 전체와 아래 내용의 간격 */
+    display: flex;
+    gap: 2em; /* 데스크톱에서는 gap 사용 */
+    margin-bottom: 4em;
   }
 
-  /* 새로 추가된 개별 슬라이더 그룹 */
+  /* 개별 슬라이더 그룹 */
   .slider-item {
-    flex: 1; /* 두 그룹이 공간을 균등하게 나눠 가짐 */
-    min-width: 0; /* flex item의 크기가 줄어들 수 있도록 설정 */
+    flex: 1;
+    min-width: 0; 
   }
 
-  /* 기존 .glider-contain 수정 */
+  /* 슬라이더의 틀 */
   .glider-contain {
-    /* max-width와 margin-auto를 제거하여 flexbox 레이아웃에 맞춤 */
     width: 100%; 
     height: 400px;
     position: relative;
   }
 
-  .glider-slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
+  /* 슬라이드 이미지 관련 스타일 */
   .img-wrap {
     width: 100%;
     height: 100%;
@@ -143,13 +136,13 @@ author_profile: true
     box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     overflow: hidden;
   }
-
   .img-wrap img {
     width: 100%;
     height: 100%;
     object-fit: contain;
   }
 
+  /* 화살표 버튼 */
   .glider-prev,
   .glider-next {
     position: absolute;
@@ -162,14 +155,19 @@ author_profile: true
     cursor: pointer;
     z-index: 10;
   }
-
   .glider-prev { left: -10px; }
   .glider-next { right: -10px; }
 
-  /* 중요: 모바일 반응형 처리 */
+  /* 모바일 반응형 처리 */
   @media (max-width: 768px) {
     .sliders-wrapper {
-      flex-direction: column; /* 화면이 좁아지면 세로로 쌓이도록 변경 */
+      flex-direction: column; /* 세로로 쌓기 */
+      gap: 0; /* 모바일에서는 flex gap을 사용하지 않음 */
+    }
+    
+    /* ▼▼▼ 이 코드가 겹침 문제를 해결합니다 ▼▼▼ */
+    .slider-item + .slider-item {
+      margin-top: 2em; /* 두 번째 슬라이더에 위쪽 여백을 직접 추가 */
     }
   }
 </style>
