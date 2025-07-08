@@ -117,16 +117,24 @@ author_profile: true
   height: 100%;
 }
 
-.glider-contain .glider img {
+.glider-contain .glider .glider-slide img {
+  /* 크기와 비율을 강제로 제어 */
+  width: auto !important;
+  height: 100% !important;
   max-width: 100% !important;
   max-height: 100% !important;
   object-fit: contain !important;
 
-  width: auto !important;
-  height: auto !important;
+  /* 위치 및 기타 스타일 */
   display: block !important;
-  margin: auto !important;
+  margin: 0 auto !important; /* 좌우 중앙 정렬 */
+  
+  /* 테마의 다른 스타일을 무시하기 위해 초기화 */
+  border: 0 !important;
+  vertical-align: middle !important;
+  box-sizing: border-box !important;
 
+  /* 시각적 효과 */
   border-radius: 12px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
