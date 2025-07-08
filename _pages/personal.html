@@ -9,35 +9,44 @@ author_profile: true
 <h2>Countries I've Visited</h2>
 <div id="visited-map" style="height: 350px; margin-bottom: 2em;"></div>
 
-<h2>Travel Photos</h2>
-<div class="glider-contain travel">
-  <button class="glider-prev travel">«</button>
-  <div class="glider travel">
-    <div class="img-wrap"><img src="/images/travel/travel_1.JPG" alt="Travel 1"></div>
-    <div class="img-wrap"><img src="/images/travel/travel_2.JPG" alt="Travel 2"></div>
-    <div class="img-wrap"><img src="/images/travel/travel_3.JPG" alt="Travel 3"></div>
-    <div class="img-wrap"><img src="/images/travel/travel_4.JPG" alt="Travel 4"></div>
-    <div class="img-wrap"><img src="/images/travel/travel_5.JPG" alt="Travel 5"></div>
-  </div>
-  <button class="glider-next travel">»</button>
-</div>
-
-<h2>My Drawings</h2>
-<div class="glider-contain drawing">
-  <button class="glider-prev drawing">«</button>
-  <div class="glider drawing">
-    <div class="img-wrap"><img src="/images/drawings/drawing_1.JPG" alt="Drawing 1"></div>
-    <div class="img-wrap"><img src="/images/drawings/drawing_2.JPG" alt="Drawing 2"></div>
-    <div class="img-wrap"><img src="/images/drawings/drawing_3.JPG" alt="Drawing 3"></div>
-  </div>
-  <button class="glider-next drawing">»</button>
-</div>
-
 <h2>Travel & Art</h2>
 <p>
   My wife and I love traveling, and I hope this page continues to grow as we explore more of the world together.<br>
   I also enjoy painting — one of my dreams is to hold a solo art exhibition someday.
 </p>
+
+<div class="sliders-wrapper">
+
+  <div class="slider-item">
+    <h2>Travel Photos</h2>
+    <div class="glider-contain travel">
+      <button class="glider-prev travel">«</button>
+      <div class="glider travel">
+        <div class="img-wrap"><img src="/images/travel/travel_1.JPG" alt="Travel 1"></div>
+        <div class="img-wrap"><img src="/images/travel/travel_2.JPG" alt="Travel 2"></div>
+        <div class="img-wrap"><img src="/images/travel/travel_3.JPG" alt="Travel 3"></div>
+        <div class="img-wrap"><img src="/images/travel/travel_4.JPG" alt="Travel 4"></div>
+        <div class="img-wrap"><img src="/images/travel/travel_5.JPG" alt="Travel 5"></div>
+      </div>
+      <button class="glider-next travel">»</button>
+    </div>
+  </div>
+
+  <div class="slider-item">
+    <h2>My Drawings</h2>
+    <div class="glider-contain drawing">
+      <button class="glider-prev drawing">«</button>
+      <div class="glider drawing">
+        <div class="img-wrap"><img src="/images/drawings/drawing_1.JPG" alt="Drawing 1"></div>
+        <div class="img-wrap"><img src="/images/drawings/drawing_2.JPG" alt="Drawing 2"></div>
+        <div class="img-wrap"><img src="/images/drawings/drawing_3.JPG" alt="Drawing 3"></div>
+      </div>
+      <button class="glider-next drawing">»</button>
+    </div>
+  </div>
+
+</div>
+
 
 <!-- Leaflet + Glider -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -101,38 +110,48 @@ author_profile: true
 </script>
 
 <style>
+  /* 새로 추가된 전체 컨테이너 */
+  .sliders-wrapper {
+    display: flex; /* Flexbox 활성화 */
+    justify-content: space-between; /* 양쪽 끝으로 정렬 */
+    gap: 2em; /* 두 슬라이더 사이의 간격 */
+    margin-bottom: 4em; /* 슬라이더 전체와 아래 내용의 간격 */
+  }
+
+  /* 새로 추가된 개별 슬라이더 그룹 */
+  .slider-item {
+    flex: 1; /* 두 그룹이 공간을 균등하게 나눠 가짐 */
+    min-width: 0; /* flex item의 크기가 줄어들 수 있도록 설정 */
+  }
+
+  /* 기존 .glider-contain 수정 */
   .glider-contain {
-    max-width: 480px;
+    /* max-width와 margin-auto를 제거하여 flexbox 레이아웃에 맞춤 */
+    width: 100%; 
     height: 400px;
-    margin: 0 auto 2em auto;
     position: relative;
   }
 
   .glider-slide {
-    /* 슬라이드 자체의 정렬을 위해 추가 */
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  /* 새로 추가된 Wrapper Div 스타일 */
   .img-wrap {
     width: 100%;
     height: 100%;
     border-radius: 12px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    /* overflow: hidden을 추가해 이미지가 테두리를 넘지 않도록 보장 */
     overflow: hidden;
   }
 
-  /* Wrapper Div 안의 img 태그에 대한 새로운 규칙 */
   .img-wrap img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* 이미지 비율 유지하며 채우기 */
+    object-fit: contain;
   }
 
-  /* 화살표 버튼 스타일 (기존과 동일) */
   .glider-prev,
   .glider-next {
     position: absolute;
@@ -146,11 +165,13 @@ author_profile: true
     z-index: 10;
   }
 
-  .glider-prev {
-    left: -10px;
-  }
+  .glider-prev { left: -10px; }
+  .glider-next { right: -10px; }
 
-  .glider-next {
-    right: -10px;
+  /* 중요: 모바일 반응형 처리 */
+  @media (max-width: 768px) {
+    .sliders-wrapper {
+      flex-direction: column; /* 화면이 좁아지면 세로로 쌓이도록 변경 */
+    }
   }
 </style>
