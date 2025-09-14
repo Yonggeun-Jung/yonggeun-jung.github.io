@@ -7,7 +7,7 @@ author_profile: true
 
 {% include base_path %}
 
-<div class="publication-section" style="font-size: 0.95em; line-height: 1.6;">
+<div class="publication-section" style="font-size: 0.85em; line-height: 1.6;">
 
   <!-- Publications -->
   <h2>Publications and Working papers</h2>
@@ -23,7 +23,7 @@ author_profile: true
         {% if pub.replication_url %}
           <span style="margin-left: 0.6em;">
             <a href="{{ pub.replication_url }}" target="_blank"
-               style="font-size: 0.9em; color: gray; text-decoration: none;">
+               style="font-size: 0.7em; color: gray; text-decoration: none;">
               [Replication]
             </a>
           </span>
@@ -32,7 +32,7 @@ author_profile: true
 
       {% if pub.abstract %}
         <details style="margin-top: 0.3em;">
-          <summary style="font-style: italic; color: gray; font-size: 0.9em; cursor: pointer;">
+          <summary style="color: gray; font-size: 0.7em;">
             Abstract
           </summary>
           <p style="margin-top: 0.5em;">{{ pub.abstract }}</p>
@@ -46,7 +46,7 @@ author_profile: true
   <h2>Work in Progress</h2>
   <ul>
     {% for wip in site.data.work_in_progress %}
-      <li style="margin-bottom: 0.5em; font-size: 1em;">
+      <li style="margin-bottom: 0.5em; font-size: 0.85em;">
         {{ wip.title }}
       </li>
     {% endfor %}
