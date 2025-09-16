@@ -10,7 +10,7 @@ author_profile: true
 <style>
   /* ===== Research page styles ===== */
   .publication-section { font-size: 0.9em; line-height: 1.6; }
-  .section-title { margin: 0.2em 0 0.6em; font-size: 1.25em; font-weight: 700; }
+  .section-title { margin: 0.2em 0 0.6em; font-size: 1.25em; font-weight: 400; }
   .subtle-hr { border: 0; border-top: 1px solid #e6e6e6; margin: 0.8em 0 1.2em; }
 
   .pub-card { padding: 0.6em 0; }
@@ -89,7 +89,7 @@ author_profile: true
 <div class="publication-section">
 
   <!-- Publications -->
-  <h2 class="section-title">Publications and Working papers</h2>
+  <h3 class="section-title">Publications and Working papers</h3>
   <hr class="subtle-hr" />
 
   {% for pub in site.data.publications %}
@@ -129,7 +129,7 @@ author_profile: true
   {% endfor %}
 
   <!-- Work in Progress -->
-  <h2 class="section-title">Work in Progress</h2>
+  <h3 class="section-title">Work in Progress</h3>
   <ul class="wip-list">
     {% for wip in site.data.work_in_progress %}
       <li class="wip-item">{{ wip.title }}</li>
