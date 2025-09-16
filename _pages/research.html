@@ -7,39 +7,43 @@ author_profile: true
 
 {% include base_path %}
 
-<div class="publication-section" style="font-size: 0.9em; line-height: 1.6;">
+<div class="publication-item" style="margin-bottom: 2em;">
 
-  <!-- Publications -->
-  <h2>Publications and Working papers</h2>
-  <hr />
+  <!-- 제목 -->
+  <p style="margin-bottom: 0.3em; font-size: 0.90em; font-weight: bold;">
+    {{ pub.citation }}
+  </p>
 
-  {% for pub in site.data.publications %}
-    <div class="publication-item" style="margin-bottom: 2em;">
-    <p style="margin-bottom: 0.3em;">
-      <a href="{{ pub.url }}" target="_blank" style="text-decoration: none; color: inherit;">
-      {{ pub.citation }}
-    </a>
+  <!-- 버튼들 -->
+  <div style="margin-top: 0.4em;">
+    <!-- Abstract 버튼 -->
+    {% if pub.abstract %}
+      <details style="display: inline-block; margin-right: 1em;">
+        <summary style="cursor: pointer; color: gray; font-size: 0.8em;">
+          [Abstract]
+        </summary>
+        <p style="margin-top: 0.5em;">{{ pub.abstract }}</p>
+      </details>
+    {% endif %}
 
-  {% if pub.replication_url %}
-    <span style="margin-left: 0.6em;">
+    <!-- Full paper 버튼 -->
+    {% if pub.url %}
+      <a href="{{ pub.url }}" target="_blank"
+         style="font-size: 0.8em; margin-right: 1em; text-decoration: none; color: #007acc;">
+        [Full paper]
+      </a>
+    {% endif %}
+
+    <!-- Replication 버튼 -->
+    {% if pub.replication_url %}
       <a href="{{ pub.replication_url }}" target="_blank"
-         style="font-size: 0.8em; color: gray; text-decoration: none;">
+         style="font-size: 0.8em; text-decoration: none; color: #007acc;">
         [Replication]
       </a>
-    </span>
-     {% endif %}
-      </p>
-
-      {% if pub.abstract %}
-        <details style="margin-top: 0.3em;">
-          <summary style="color: gray; font-size: 0.8em;">
-            Abstract
-          </summary>
-          <p style="margin-top: 0.5em;">{{ pub.abstract }}</p>
-        </details>
-      {% endif %}
-    </div>
-    <hr />
+    {% endif %}
+  </div>
+</div>
+<hr />
   {% endfor %}
 
   <!-- Work in Progress -->
