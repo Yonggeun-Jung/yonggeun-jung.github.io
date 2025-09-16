@@ -15,19 +15,19 @@ author_profile: true
 
   {% for pub in site.data.publications %}
     <div class="publication-item" style="margin-bottom: 2em;">
-      <p style="margin-bottom: 0.3em;">
-        <strong>
-          <a href="{{ pub.url }}" target="_blank">{{ pub.citation }}</a>
-        </strong>
+    <p style="margin-bottom: 0.3em;">
+      <a href="{{ pub.url }}" target="_blank" style="text-decoration: none; color: inherit;">
+      {{ pub.citation }}
+    </a>
 
-        {% if pub.replication_url %}
-          <span style="margin-left: 0.6em;">
-            <a href="{{ pub.replication_url }}" target="_blank"
-               style="font-size: 0.8em; color: gray; text-decoration: none;">
-              [Replication]
-            </a>
-          </span>
-        {% endif %}
+  {% if pub.replication_url %}
+    <span style="margin-left: 0.6em;">
+      <a href="{{ pub.replication_url }}" target="_blank"
+         style="font-size: 0.8em; color: gray; text-decoration: none;">
+        [Replication]
+      </a>
+    </span>
+     {% endif %}
       </p>
 
       {% if pub.abstract %}
