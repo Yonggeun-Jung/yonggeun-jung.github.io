@@ -8,7 +8,7 @@ author_profile: true
 {% include base_path %}
 
 <style>
-  /* ===== Research page scoped styles ===== */
+  /* ===== Research page styles ===== */
   .publication-section { font-size: 0.9em; line-height: 1.6; }
   .section-title { margin: 0.2em 0 0.6em; font-size: 1.25em; font-weight: 700; }
   .subtle-hr { border: 0; border-top: 1px solid #e6e6e6; margin: 0.8em 0 1.2em; }
@@ -18,68 +18,49 @@ author_profile: true
 
   .btn-row { display: flex; flex-wrap: wrap; gap: 0.6em; align-items: flex-start; }
 
-  /* === 버튼 공통 (Abstract/Full/Replication 완전 동일) === */
-  .btn-base {
+  /* === 버튼 공통 === */
+  .rbtn,
+  .rbtn-summary {
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans",
-                 "Helvetica Neue", Arial, sans-serif;  /* 버튼만 sans-serif */
-    font-size: 0.82em;          /* 살짝 작은 폰트 */
-    line-height: 1.2;
-    padding: 0.36em 0.9em;      /* 동일한 내부 여백 */
-    border: 1px solid #cfcfcf;
-    border-radius: 8px;
-    background: #f0f0f0;        /* 회색 배경 */
-    color: #111;                /* 검은 글씨 */
-    text-decoration: none;
-    box-sizing: border-box;     /* 패딩 포함 크기 계산 */
-    display: inline-block;      /* details/summary와 동일한 박스 모델 */
-    vertical-align: top;        /* baseline 차이로 인한 들쑥 해결 */
-    white-space: nowrap;        /* 한 줄 유지 */
-    cursor: pointer;
+                 "Helvetica Neue", Arial, sans-serif !important;
+    font-size: 0.78em !important;
+    line-height: 1.1 !important;
+    padding: 0.22em 0.6em !important;
+    border: 1px solid #cfcfcf !important;
+    border-radius: 6px !important;
+    background: #f0f0f0 !important;
+    color: #111 !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    vertical-align: top !important;
+    white-space: nowrap !important;
+    cursor: pointer !important;
+    box-sizing: border-box !important;
   }
-  .btn-base:hover { background: #e7e7e7; }
-  .btn-base:active { background: #dcdcdc; }
+  .rbtn:hover, .rbtn-summary:hover   { background: #e7e7e7 !important; }
+  .rbtn:active, .rbtn-summary:active { background: #dcdcdc !important; }
 
-  /* a 버튼 */
-  .btn { composes: btn-base; }
-  /* 브라우저 호환을 위해 composes 미사용 시 다음 줄 유지 */
-  .btn { font-family: inherit; font-size: inherit; line-height: inherit; padding: 0.36em 0.9em; border: 1px solid #cfcfcf; border-radius: 8px; background: #f0f0f0; color: #111; text-decoration: none; box-sizing: border-box; display: inline-block; vertical-align: top; white-space: nowrap; cursor: pointer; }
+  /* 링크 상태도 항상 동일 */
+  a.rbtn:link,
+  a.rbtn:visited,
+  a.rbtn:hover,
+  a.rbtn:active {
+    color: #111 !important;
+    background: #f0f0f0 !important;
+    text-decoration: none !important;
+  }
 
-  /* details/summary를 버튼처럼 보이게 */
-  .abs-details {
-    display: inline-block;      /* 버튼과 동일 */
-    vertical-align: top;
-    margin: 0; padding: 0;
-  }
-  .abs-details > summary {
-    list-style: none;           /* Firefox 기본 마커 제거 */
-    outline: none;              /* 포커스 외곽선 기본 제거(필요시 커스텀 가능) */
-  }
-  .abs-details > summary::marker { content: ""; }               /* Firefox */
-  .abs-details > summary::-webkit-details-marker { display: none; } /* Chrome/Safari */
-  .btn-summary {               /* summary를 버튼처럼 */
-    font-family: inherit;
-    font-size: inherit;
-    line-height: inherit;
-    padding: 0.36em 0.9em;
-    border: 1px solid #cfcfcf;
-    border-radius: 8px;
-    background: #f0f0f0;
-    color: #111;
-    text-decoration: none;
-    box-sizing: border-box;
-    display: inline-block;
-    vertical-align: top;
-    white-space: nowrap;
-    cursor: pointer;
-  }
-  .btn-summary:hover { background: #e7e7e7; }
-  .btn-summary:active { background: #dcdcdc; }
+  /* details/summary 버튼 */
+  .abs-details { display: inline-block !important; vertical-align: top !important; margin:0; padding:0; }
+  .abs-details > summary { list-style: none; outline: none; cursor: pointer; }
+  .abs-details > summary::marker { content: ""; }
+  .abs-details > summary::-webkit-details-marker { display: none; }
 
   /* Abstract 내용 박스 */
   .abstract-box {
-    margin-top: 0.6em;
+    margin-top: 0.55em;
     font-size: 0.9em;
-    padding: 0.7em 0.9em;
+    padding: 0.6em 0.8em;
     border-left: 3px solid #e0e0e0;
     background: #fbfbfb;
   }
@@ -88,14 +69,19 @@ author_profile: true
   .wip-list { margin: 0.4em 0 0; padding-left: 1.1em; }
   .wip-item { margin: 0.35em 0; font-size: 0.95em; }
 
-  /* Dark mode 대응 */
+  /* Dark mode */
   @media (prefers-color-scheme: dark) {
     .subtle-hr { border-top-color: #2f2f2f; }
-    .btn, .btn-summary {
-      border-color: #3a3a3a; background: #2a2a2a; color: #f3f3f3;
+    .rbtn, .rbtn-summary {
+      background: #2b2b2b !important;
+      color: #f3f3f3 !important;
+      border-color: #3a3a3a !important;
     }
-    .btn:hover, .btn-summary:hover { background: #333; }
-    .btn:active, .btn-summary:active { background: #2b2b2b; }
+    a.rbtn:link, a.rbtn:visited, a.rbtn:hover, a.rbtn:active {
+      color: #f3f3f3 !important; background: #2b2b2b !important;
+    }
+    .rbtn:hover, .rbtn-summary:hover   { background: #333 !important; }
+    .rbtn:active, .rbtn-summary:active { background: #2a2a2a !important; }
     .abstract-box { background: #1b1b1b; border-left-color: #303030; }
   }
 </style>
@@ -112,11 +98,11 @@ author_profile: true
       <!-- 제목 -->
       <p class="pub-title">{{ pub.citation }}</p>
 
-      <!-- 버튼들: Abstract / Full paper / Replication -->
+      <!-- 버튼들 -->
       <div class="btn-row">
         {% if pub.abstract %}
           <details class="abs-details">
-            <summary class="btn-summary" aria-controls="abs-{{ forloop.index }}">
+            <summary class="rbtn-summary" aria-controls="abs-{{ forloop.index }}">
               Abstract
             </summary>
             <div id="abs-{{ forloop.index }}" class="abstract-box">
@@ -126,13 +112,13 @@ author_profile: true
         {% endif %}
 
         {% if pub.url %}
-          <a href="{{ pub.url }}" target="_blank" class="btn" rel="noopener">
+          <a href="{{ pub.url }}" target="_blank" class="rbtn" rel="noopener">
             Full paper
           </a>
         {% endif %}
 
         {% if pub.replication_url %}
-          <a href="{{ pub.replication_url }}" target="_blank" class="btn" rel="noopener">
+          <a href="{{ pub.replication_url }}" target="_blank" class="rbtn" rel="noopener">
             Replication
           </a>
         {% endif %}
@@ -151,3 +137,4 @@ author_profile: true
   </ul>
 
 </div> <!-- end publication-section -->
+
