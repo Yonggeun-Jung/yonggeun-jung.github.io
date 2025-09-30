@@ -122,8 +122,14 @@ author_profile: true
             Replication
           </a>
         {% endif %}
-      </div>
 
+        {% if pub.slides_url %}
+          <a href="{{ pub.slides_url }}" target="_blank" class="rbtn" rel="noopener">
+            Slides
+          </a>
+        {% endif %}
+      </div>
+       
     </div>
     <hr class="subtle-hr" />
   {% endfor %}
