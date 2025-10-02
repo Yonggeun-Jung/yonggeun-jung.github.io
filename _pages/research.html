@@ -69,27 +69,10 @@ author_profile: true
   .wip-list { margin: 0.4em 0 0; padding-left: 1.1em; }
   .wip-item { margin: 0.35em 0; font-size: 0.95em; }
 
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
-  .subtle-hr { border-top-color: #2f2f2f; }
-  .rbtn, .rbtn-summary {
-    background: #2a2a2a !important;
-    color: #444 !important;
-    border-color: #f0f0f0 !important;
-  }
-  a.rbtn:link, a.rbtn:visited, a.rbtn:hover, a.rbtn:active {
-    color: #f3f3f3 !important; background: #2b2b2b !important;
-  }
-  .rbtn:hover, .rbtn-summary:hover   { background: #333 !important; }
-  .rbtn:active, .rbtn-summary:active { background: #2a2a2a !important; }
-
-  /* Abstract (닫힌 상태 + 열린 상태 모두 적용) */
-  .abstract-box,
-  details[open] .abstract-box {
-    background: #2a2a2a !important;
-    border-left-color: #444 !important;
-    color: #f0f0f0 !important;
-  }
+html[data-theme="dark"] details.abs-details[open] > .abstract-box {
+  background: #2a2a2a !important;
+  border-left-color: #444 !important;
+  color: #f0f0f0 !important;
 }
 </style>
 
